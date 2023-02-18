@@ -4,7 +4,8 @@
   "description": "<div align=\"center\"> <img src=\"https://i.imgur.com/xrlGyTp.png\"> </div>",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+	"test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "dependencies": {
     "colors": "^1.4.0",
     "date-and-time": "^2.4.2"
+  },
+  "devDependencies": {
+    "jest": "^29.4.3"
   }
 }
