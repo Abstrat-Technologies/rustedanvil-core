@@ -1,63 +1,71 @@
 const errorHandler = require('../src/modules/error-handler')
+const colours = require('colors')
+const date = require('date-and-time')
+
+function dateOutput() {
+	let now = new Date()
+	let dateOut = date.format(now, 'YYYY/MM/DD HH:mm:ss [GMT]Z', true)
+	return dateOut
+}
 
 describe('errorHandler', () => {
-	it('should return the correct strings for INFO error level 0', () => {
+	it('should call the output function with the correct string for INFO error level 0', () => {
 		const errorLevel = 0
 		const errorMsg = 'Something went wrong.'
 		const errorLocation = 'server.js'
 
-		const errorOutput = errorHandler(errorLevel, errorMsg, errorLocation)
+		const outputMock = jest.fn()
+		errorHandler(errorLevel, errorMsg, errorLocation, outputMock)
 
-		expect(errorOutput).toMatch(errorMsg)
-		expect(errorOutput).toMatch(errorLocation)
-		expect(errorOutput).toMatch('INFO')
+		const expectedOutput = `${colours.gray(dateOutput())} ${colours.brightWhite('INFO')}${colours.gray(': ')}${colours.brightBlue(errorMsg)}${colours.gray(' - called by ')}${colours.brightCyan(errorLocation)}`
+		expect(outputMock).toHaveBeenCalledWith(expectedOutput)
 	})
 
-	it('should return the correct strings for DEBUG error level 1', () => {
+	it('should call the output function with the correct string for DEBUG error level 1', () => {
 		const errorLevel = 1
 		const errorMsg = 'Something went wrong.'
 		const errorLocation = 'server.js'
 
-		const errorOutput = errorHandler(errorLevel, errorMsg, errorLocation)
+		const outputMock = jest.fn()
+		errorHandler(errorLevel, errorMsg, errorLocation, outputMock)
 
-		expect(errorOutput).toMatch(errorMsg)
-		expect(errorOutput).toMatch(errorLocation)
-		expect(errorOutput).toMatch('DEBUG')
+		const expectedOutput = `${colours.gray(dateOutput())} ${colours.white('DEBUG')}${colours.gray(': ')}${colours.brightBlue(errorMsg)}${colours.gray(' - called by ')}${colours.brightCyan(errorLocation)}`
+		expect(outputMock).toHaveBeenCalledWith(expectedOutput)
 	})
 
-	it('should return the correct strings for WARNING error level 2', () => {
+	it('should call the output function with the correct string for WARNING error level 2', () => {
 		const errorLevel = 2
 		const errorMsg = 'Something went wrong.'
 		const errorLocation = 'server.js'
 
-		const errorOutput = errorHandler(errorLevel, errorMsg, errorLocation)
+		const outputMock = jest.fn()
+		errorHandler(errorLevel, errorMsg, errorLocation, outputMock)
 
-		expect(errorOutput).toMatch(errorMsg)
-		expect(errorOutput).toMatch(errorLocation)
-		expect(errorOutput).toMatch('WARN')
+		const expectedOutput = `${colours.gray(dateOutput())} ${colours.yellow('WARN')}${colours.gray(': ')}${colours.brightBlue(errorMsg)}${colours.gray(' - called by ')}${colours.brightCyan(errorLocation)}`
+		expect(outputMock).toHaveBeenCalledWith(expectedOutput)
 	})
 
-	it('should return the correct strings for ERROR error level 3', () => {
+	it('should call the output function with the correct string for ERROR error level 3', () => {
 		const errorLevel = 3
 		const errorMsg = 'Something went wrong.'
 		const errorLocation = 'server.js'
 
-		const errorOutput = errorHandler(errorLevel, errorMsg, errorLocation)
+		const outputMock = jest.fn()
+		errorHandler(errorLevel, errorMsg, errorLocation, outputMock)
 
-		expect(errorOutput).toMatch(errorMsg)
-		expect(errorOutput).toMatch(errorLocation)
-		expect(errorOutput).toMatch('ERROR')
+		const expectedOutput = `${colours.gray(dateOutput())} ${colours.brightRed('ERROR')}${colours.gray(': ')}${colours.brightBlue(errorMsg)}${colours.gray(' - called by ')}${colours.brightCyan(errorLocation)}`
+		expect(outputMock).toHaveBeenCalledWith(expectedOutput)
 	})
 
-	it('should return the correct strings for FATAL error level 4', () => {
+	it('should call the output function with the correct string for FATAL error level 4', () => {
 		const errorLevel = 4
 		const errorMsg = 'Something went wrong.'
 		const errorLocation = 'server.js'
 
-		const errorOutput = errorHandler(errorLevel, errorMsg, errorLocation)
+		const outputMock = jest.fn()
+		errorHandler(errorLevel, errorMsg, errorLocation, outputMock)
 
-		expect(errorOutput).toMatch(errorMsg)
-		expect(errorOutput).toMatch(errorLocation)
-		expect(errorOutput).toMatch('FATAL')
+		const expectedOutput = `${colours.gray(dateOutput())} ${colours.red('FATAL')}${colours.gray(': ')}${colours.brightBlue(errorMsg)}${colours.gray(' - called by ')}${colours.brightCyan(errorLocation)}`
+		expect(outputMock).toHaveBeenCalledWith(expectedOutput)
 	})
 })
