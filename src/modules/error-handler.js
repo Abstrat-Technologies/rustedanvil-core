@@ -81,14 +81,15 @@ function errorLevelFormat(errorLevel) {
  * @param {int} errorLevel the error level integer (0 - 4)
  * @param {string} errorMsg the message to be displayed in console
  * @param {string} errorLocation the file or function calling this log
+ * @param {object} [outputFunc = outputMsg] the function it should output to.
  * 
- * @returns {none}
+ * @returns {string} the formatted message ready to be printed
  */
-function errorHandler(errorLevel, errorMsg, errorLocation) {
+function errorHandler(errorLevel, errorMsg, errorLocation, outputFunc = outputMsg) {
 	dateOut = dateOutput()
 	formattedErrorLevel = errorLevelFormat(errorLevel)
 	let errorOut = `${colours.gray(dateOut)} ${formattedErrorLevel}${colours.gray(": ")}${colours.brightBlue(errorMsg)}${colours.gray(" - called by ")}${colours.brightCyan(errorLocation)}`
-	outputMsg(errorOut)
+	outputFunc(errorOut)
 }
 
 /**
