@@ -14,12 +14,28 @@
 const colours = require('colors')
 const date = require('date-and-time')
 
+/**
+ * Quickly allows the current date, time and timezone to
+ * be accessed for ease-of-use in a logging context
+ * 
+ * @param none
+ * 
+ * @returns {string} date, time and timezone as string
+ */
 function dateOutput() {
 	let now = new Date()
 	let dateOut = date.format(now, 'YYYY/MM/DD HH:mm:ss [GMT]Z', true)
 	return dateOut
 }
 
+/**
+ * Formats & processes the given error level integer in
+ * order for it's string equivalent to be used
+ *
+ * @param {int} errorLevel the error level integer (0 - 4)
+ * 
+ * @returns {string} the formatted errorLevel as a string
+ */
 function errorLevelFormat(errorLevel) {
 	let formattedErrorLevel
 	 switch(errorLevel) {
@@ -52,6 +68,16 @@ function errorLevelFormat(errorLevel) {
 	return formattedErrorLevel
 }
 
+/**
+ * Creates a nicley formatted log message ready for console, 
+ * with date, time, error level, message, and location
+ *
+ * @param {int} errorLevel the error level integer (0 - 4)
+ * @param {string} errorMsg the message to be displayed in console
+ * @param {string} errorLocation the file or function calling this log
+ * 
+ * @returns {string} the formatted log message as a string
+ */
 function errorHandler(errorLevel, errorMsg, errorLocation) {
 	dateOut = dateOutput()
 	formattedErrorLevel = errorLevelFormat(errorLevel)
