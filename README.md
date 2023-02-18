@@ -1,6 +1,6 @@
 <div align="center"> <img src="https://i.imgur.com/xrlGyTp.png"> </div>
 
-# RustedAnvil - Forge 965 for 1.6.4
+# RustedAnvil
 ## What is it?
 RustedAnvil is a project aiming to revive and create patches for abandoned Forge versions to bring them back to life. 
 
@@ -9,8 +9,10 @@ Ease-of-use and maintainability are at the core of the project.
 This branch is specifically for Forge 965 for 1.6.4
 ## Usage
 Currently, there is no way to use the project - it's still in development. This section will be updated once needed!
+## Usage
+Head over to the branch of the version you'd like to use to find out more
 ## Contributing
-See the CONTRIBUTING.md
+See the CONTRIBUTING.md of the specific branch you'd like to contribute to for more info
 ## License
 This project is licensed uder the Abstrat Open Source Collaborations License v1.1
 
@@ -21,29 +23,7 @@ Arek Kwapis - Code, Documentation, Maintenance, Hosting
 Unloaded123456 - Documentation
 
 GloryBax - Art & Design
-## TODO
-- [x] Update this readme to make it less word soup and more useful info
-- [ ] Put all the unless non-getting-started stuff into a contributing.md file
-- [x] copyright.md
-- [x] license.md
-- [ ] some form of tracker (trello?)
-## Milestones
-### Milestone 1
-- [x] Github setup
-- [x] Documentation
-	- [x] Missing files
-		- [x] Forge
-		- [x] MavenCentral
-		- [x] Mojang
-	- [x] Broken code
-	- [x] Missing code
-	- [x] Missing items
-- [x] Suggested fixes
-- [ ] Cleanup
-### Milestone 2
-TBC - The content of Milestone 2 depends on the results of Milestone 1
-### Milestone 3
-TBC - The content of Milestone 3 depends on the results of Milestone 1
+
 ## Support
 Support will only be given in relation to the usage and development of RustedAnvil. We will not give modding support, instead visit the [MinecraftForum](https://www.minecraftforum.net/) or the relevant channels of the [RustedAnvil Discord](https://discord.gg/h7qpjngd9A)
 ### Technical Support
