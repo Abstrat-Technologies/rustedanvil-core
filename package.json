@@ -1,21 +1,21 @@
 {
-  "name": "com.abstrat.rustedanvil.965",
+  "name": "com.abstrat.rustedanvil.core",
   "version": "1.0.0",
   "description": "<div align=\"center\"> <img src=\"https://i.imgur.com/xrlGyTp.png\"> </div>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arek-kwapis/rustedanvil.git"
+    "url": "git+https://github.com/arek-kwapis/rustedanvil-core.git"
   },
   "author": "Abstrat Group",
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
-    "url": "https://github.com/arek-kwapis/rustedanvil/issues"
+    "url": "https://github.com/arek-kwapis/rustedanvil-core/issues"
   },
-  "homepage": "https://github.com/arek-kwapis/rustedanvil#readme",
+  "homepage": "https://github.com/arek-kwapis/rustedanvil-core#readme",
   "dependencies": {
     "colors": "^1.4.0"
   }
