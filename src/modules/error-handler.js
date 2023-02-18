@@ -16,7 +16,7 @@ const date = require('date-and-time')
 
 function dateOutput() {
 	let now = new Date()
-	let dateOut = date.format(now, 'YYYY/MM/DD HH:mm:SSS [GMT]Z', true)
+	let dateOut = date.format(now, 'YYYY/MM/DD HH:mm:ss [GMT]Z', true)
 	return dateOut
 }
 
@@ -55,7 +55,7 @@ function errorLevelFormat(errorLevel) {
 function errorHandler(errorLevel, errorMsg, errorLocation) {
 	dateOut = dateOutput()
 	formattedErrorLevel = errorLevelFormat(errorLevel)
-	let errorOut = `${colours.gray(dateOut)} ${formattedErrorLevel}${colours.gray(":")} ${colours.brightBlue(errorMsg)} ${colours.gray("- called by")} ${colours.brightCyan(errorLocation)}`
+	let errorOut = `${colours.gray(dateOut)} ${formattedErrorLevel}${colours.gray(": ")}${colours.brightBlue(errorMsg)}${colours.gray(" - called by ")}${colours.brightCyan(errorLocation)}`
 	return errorOut
 }
 
