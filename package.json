@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/arek-kwapis/rustedanvil-core#readme",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "date-and-time": "^2.4.2"
   }
 }
