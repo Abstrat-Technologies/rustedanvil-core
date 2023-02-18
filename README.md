@@ -5,6 +5,10 @@
 RustedAnvil is a project aiming to revive and create patches for abandoned Forge versions to bring them back to life. 
 
 Ease-of-use and maintainability are at the core of the project. 
+
+This branch is specifically for Forge 965 for 1.6.4
+## Usage
+Currently, there is no way to use the project - it's still in development. This section will be updated once needed!
 ## Usage
 Head over to the branch of the version you'd like to use to find out more
 ## Contributing
@@ -19,8 +23,7 @@ Arek Kwapis - Code, Documentation, Maintenance, Hosting
 Unloaded123456 - Documentation
 
 GloryBax - Art & Design
-## Future Plans
-The end goal of this project is to sucesfully revive all broken legacy Forge versions, and to potentially future-proof more modern versions (like 1.7.x and 1.8.x)
+
 ## Support
 Support will only be given in relation to the usage and development of RustedAnvil. We will not give modding support, instead visit the [MinecraftForum](https://www.minecraftforum.net/) or the relevant channels of the [RustedAnvil Discord](https://discord.gg/h7qpjngd9A)
 ### Technical Support
