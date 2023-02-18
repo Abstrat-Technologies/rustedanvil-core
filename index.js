@@ -1,3 +1,4 @@
+const colours = require('colors')
 const errorHandler = require('./src/modules/error-handler');
 var errorOut = errorHandler(0, 'Something went wrong.', 'server.js');
 console.log(errorOut);

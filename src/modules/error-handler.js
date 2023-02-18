@@ -55,7 +55,7 @@ function errorLevelFormat(errorLevel) {
 function errorHandler(errorLevel, errorMsg, errorLocation) {
 	dateOut = dateOutput()
 	formattedErrorLevel = errorLevelFormat(errorLevel)
-	let errorOut = `${colours.gray(dateOut)} ${formattedErrorLevel}${colours.gray(":")} \t ${colours.brightBlue(errorMsg)} ${colours.gray("- called by")} ${colours.brightCyan(errorLocation)}`
+	let errorOut = `${colours.gray(dateOut)} ${formattedErrorLevel}${colours.gray(":")} ${colours.brightBlue(errorMsg)} ${colours.gray("- called by")} ${colours.brightCyan(errorLocation)}`
 	return errorOut
 }
 
