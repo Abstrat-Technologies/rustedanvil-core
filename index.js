@@ -1,15 +1,9 @@
-const errorHandler = require('./src/modules/error-handler');
-var errorOut = errorHandler(0, 'Something went wrong.', 'server.js');
-console.log(errorOut);
+const logMsg = require('./src/modules/error-handler');
+const test = require('./src/modules/startup');
+logMsg(0, 'Something went wrong.', 'server.js');
+logMsg(1, 'Something went wrong.', 'server.js');
+logMsg(2, 'Something went wrong.', 'server.js');
+logMsg(3, 'Something went wrong.', 'server.js');
+logMsg(4, 'Something went wrong.', 'server.js');
 
-var errorOut = errorHandler(1, 'Something went wrong.', 'server.js');
-console.log(errorOut);
-
-var errorOut = errorHandler(2, 'Something went wrong.', 'server.js');
-console.log(errorOut);
-
-var errorOut = errorHandler(3, 'Something went wrong.', 'server.js');
-console.log(errorOut);
-
-var errorOut = errorHandler(4, 'Something went wrong.', 'server.js');
-console.log(errorOut);
+test

@@ -71,18 +71,35 @@ function errorLevelFormat(errorLevel) {
 /**
  * Creates a nicley formatted log message ready for console, 
  * with date, time, error level, message, and location
+ * 
+ * 0 = INFO;
+ * 1 = DEBUG;
+ * 2 = WARN;
+ * 3 = ERROR;
+ * 4 = FATAL;
  *
  * @param {int} errorLevel the error level integer (0 - 4)
  * @param {string} errorMsg the message to be displayed in console
  * @param {string} errorLocation the file or function calling this log
  * 
- * @returns {string} the formatted log message as a string
+ * @returns {none}
  */
 function errorHandler(errorLevel, errorMsg, errorLocation) {
 	dateOut = dateOutput()
 	formattedErrorLevel = errorLevelFormat(errorLevel)
 	let errorOut = `${colours.gray(dateOut)} ${formattedErrorLevel}${colours.gray(": ")}${colours.brightBlue(errorMsg)}${colours.gray(" - called by ")}${colours.brightCyan(errorLocation)}`
-	return errorOut
+	outputMsg(errorOut)
+}
+
+/**
+ * Outputs the message passed to it to the log
+ *
+ * @param {string} msg the message to be outputted
+ * 
+ * @returns {none}
+ */
+function outputMsg(msg) {
+	console.log(msg)
 }
 
 module.exports = errorHandler
