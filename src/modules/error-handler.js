@@ -103,4 +103,7 @@ function outputMsg(msg) {
 	console.log(msg)
 }
 
-module.exports = errorHandler
+module.exports = {
+	errorHandler,
+	outputMsg
+}
