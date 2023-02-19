@@ -1,4 +1,5 @@
-const errorHandler = require('../src/modules/error-handler')
+const loggingUtils = require('../src/modules/error-handler')
+const errorHandler = loggingUtils.errorHandler
 const colours = require('colors')
 const date = require('date-and-time')
 
