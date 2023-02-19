@@ -4,7 +4,7 @@
   "description": "<div align=\"center\"> <img src=\"https://i.imgur.com/xrlGyTp.png\"> </div>",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js --logging-level=0",
 	"test": "jest"
   },
   "repository": {
