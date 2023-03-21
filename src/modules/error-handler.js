@@ -62,7 +62,7 @@ function errorLevelFormat(errorLevel) {
 		// If this happens, the universe must have exploded
 		default:
 			console.log(colours.brightRed("FATAL: A fatal error has occured. The application cannot proceed."))
-			process.exit(1)
+			//process.exit(1)
 			break
 	}
 	return formattedErrorLevel
