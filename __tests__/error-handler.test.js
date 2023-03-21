@@ -2,6 +2,8 @@ const loggingUtils = require('../src/modules/error-handler')
 const errorHandler = loggingUtils.errorHandler
 const colours = require('colors')
 const date = require('date-and-time')
+const loggingPath = require('path');
+var curFile = loggingPath.basename(__filename);
 
 function dateOutput() {
 	let now = new Date()
@@ -13,7 +15,7 @@ describe('errorHandler', () => {
 	it('should call the output function with the correct string for INFO error level 0', () => {
 		const errorLevel = 0
 		const errorMsg = 'Something went wrong.'
-		const errorLocation = 'server.js'
+		const errorLocation = curFile
 
 		const outputMock = jest.fn()
 		errorHandler(errorLevel, errorMsg, errorLocation, outputMock)
