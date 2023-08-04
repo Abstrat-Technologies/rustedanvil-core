@@ -1,0 +1,8 @@
+{
+	"logging": true,
+	"logging-level": 1,
+	"modules": {
+		"startup": "./modules/startup.js",
+		"platform-lockout": "./modules/platform-lockout.js"
+	}
+}
