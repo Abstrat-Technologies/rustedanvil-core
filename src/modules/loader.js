@@ -21,17 +21,21 @@ function parseSettings() {
 			logMsg(2, "Unable to access settings file!", curFile)
 		}
 		else {
+			let settingData = ""
+
 			try {
-				const settingData = JSON.parse(data)
+				settingData = JSON.parse(data)
 				logMsg(0, "Read OK!", curFile)
-				readModuleList(settingData)
 				
 			} catch (error) {
 				//eHandler.readLocalFileError(error, 1)
 				logMsg(2, "Unable to parse settings file! \n" +  error, curFile)
 			}
+
+			if (settingData) {
+				readModuleList(settingData)
+			}
 		}
-	
 	})
 }
 
@@ -42,7 +46,24 @@ function readModuleList(jsonData) {
 		moduleList.push([moduleName, jsonData.modules[moduleName]]);
 	}
 
-	console.log(moduleList[1][0])
+	let formattedString = ""
+
+	for (let i = 0; i < moduleList.length; i++) {
+		// Counts the amount of entriesx in the array correctly
+		// Now just create a easy-to-import string, ready to use to output a list of modules
+		// with all their info so it looks like this:
+		// Modules Found: Module1 [1.0.0], Module2 [1.0.0], Module3 [1.0.0]
+		let tempStringHold = moduleList[i][0]
+		if (formattedString.length == 0) {
+			formattedString = tempStringHold
+		}
+		else {
+			formattedString = formattedString + ", " + tempStringHold
+		}
+
+	}
+	console.log(moduleList)
+	logMsg(0, "Modules found: " + formattedString, curFile)
 }
 
 parseSettings()
