@@ -41,9 +41,17 @@ function broadcastFuncs() {
 	//Broadcast the avaliable functions that can be called
 }
 
+function broadcastModuleInfo() {
+	// Broadcast the module info for interal module loader
+	const name = "platform-lockout"
+	const version = "0.0.1"
+	return {name, version}
+}
+
 checkPlatform()
 
 module.exports = {
 	checkPlatform,
-	broadcastFuncs
+	broadcastFuncs,
+	broadcastModuleInfo
 }
