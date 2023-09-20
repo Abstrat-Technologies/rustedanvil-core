@@ -35,6 +35,10 @@ function parseSettings() {
 			if (settingData) {
 				readModuleList(settingData)
 			}
+
+			if (!settingData) {
+				logMsg(4, "A fatal error occured", curFile)
+			}
 		}
 	})
 }
