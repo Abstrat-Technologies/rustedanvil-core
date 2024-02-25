@@ -13,8 +13,9 @@
 
 const colours = require('colors')
 const date = require('date-and-time')
-const path = require('path');
-const curFile = path.basename(__filename);
+const path = require('path')
+const curFile = path.basename(__filename)
+//const langHandler = require('./lang-handler')
 
 /**
  * Quickly allows the current date, time and timezone to
@@ -96,6 +97,8 @@ function consoleOut(errorLevel, errorMsg, errorLocation, outputFunc = outputMsg)
 
 /**
  * Outputs the message passed to it to the log
+ * 
+ * THIS IS A INTERNAL FUNCTION FOR DEBUGGING ONLY!!!
  *
  * @param {string} msg the message to be outputted
  * 
@@ -109,64 +112,42 @@ function outputMsg(msg) {
  * Outputs an error relevant to local read operations from fs.readFile()
  * 
  * @param {string} err the error produced
+ * @param {string} callLoc the location the error was called from
  * @param {boolean} isCritical was the operation required to proceed
  * 
  * @returns {boolean} is it okay to proceed
  */
-function readLocalFileError(err, isCritical) {
-
-
-
-	switch (err) {
-		// Permission denied
-		case 'EACCES':
-			consoleOut(4, "Read file error: Permission denied. (RA-1001)", curFile)
-			criticalCheck(isCritical)
-			break
-		// Bad file descriptor
-		case 'EBADF':
-			consoleOut(4, "Read file error: Bad file descriptor. (RA-1002)", curFile)
-			break
-		// Too many open files
-		case 'EMFILE':
-			consoleOut(4, "Read file error: Too many open files. (RA-1003)", curFile)
-			break
-		// No such file or directory
-		case 'ENOENT':
-			consoleOut(4, "Read file error: No such file or directory. (RA-1004)", curFile)
-			break
-		// Not a directory
-		case 'ENOTDIR':
-			consoleOut(4, "Read file error: Not a directory. (RA-1005)", curFile)
-			break
-		// File name too long
-		case 'ENAMETOOLONG':
-			consoleOut(4, "Read file error: File name is too long. (RA-1006)", curFile)
-			break
-		// Is a directory
-		case 'EISDIR':
-			consoleOut(4, "Read file error: Expected file, is a directory. (RA-1007)", curFile)
-			break
-		// Input/output error
-		case 'EIO':
-			consoleOut(4, "Read file error: I/O error. (RA-1008)", curFile)
-			break
-		default:
-			consoleOut(4, "Read file error: Unknown error. (RA-1010)", curFile)
-			break
+function readLocalFileError(err, callLoc, isCritical) {
+	// Lookup table of error codes
+	const errLookupTable = {
+		"EACCES": () => consoleOut(4, "Read file error: Permission denied. (RA-1001)", callLoc), // Permission denied
+		"EBADF": () => consoleOut(4, "Read file error: Bad file descriptor. (RA-1002)", callLoc), // Bad file descriptor
+		"EMFILE": () => consoleOut(4, "Read file error: Too many open files. (RA-1003)", callLoc), // Too many open files
+		"ENOENT": () => consoleOut(4, "Read file error: No such file or directory. (RA-1004)", callLoc), // No such file or directory
+		"ENOTDIR": () => consoleOut(4, "Read file error: Not a directory. (RA-1005)", callLoc), // Not a directory
+		"ENAMETOOLONG": () => consoleOut(4, "Read file error: File name is too long. (RA-1006)", callLoc), // File name too long
+		"EISDIR": () => consoleOut(4, "Read file error: Expected file, is a directory. (RA-1007)", callLoc), // Is a directory
+		"EIO": () => consoleOut(4, "Read file error: I/O error. (RA-1008)", callLoc), // Input/output error
+		"DEFAULT": () => consoleOut(4, "Read file error: Unknown error. (RA-1010)", callLoc) // Default. No case exists
 	}
 
-	function criticalCheck(isCritical) {
-		if (isCritical = 1) {
-			return false
-			// Proceed to exit handler
-		} else {
-			return true
-		}
+	// If true = exec action. else, exec default case
+	errLookupTable[err] ? errLookupTable[err]() : errLookupTable["DEFAULT"]();
+
+	if (isCritical === 1) {
+		//error out
 	}
+
+}
+
+
+
+function broadcastFuncs() {
+	//Broadcast the avaliable functions that can be called
 }
 
 module.exports = {
+	broadcastFuncs,
 	consoleOut,
 	outputMsg,
 	readLocalFileError
