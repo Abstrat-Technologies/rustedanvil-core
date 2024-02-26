@@ -1,5 +1,5 @@
 /*
- *	lang-handler.js
+ *	lang-handler-prep.js
  *
  *  Reads, formats and prepares language
  *  files for use
@@ -74,13 +74,16 @@ async function langData() {
 	}
 
 	logMsg(0, "Language file sucessfully processed", curFile)
-	return langStrings
+	return langStrings // type: object
 }
 
+// Dummied for now - there's nothing here to broadcast. Only lang handler should recieve this files out. This file is simply
+// to prepare for normal lang handler use. Args can be passed to lang handler.
+
 // Any functions we'd like to broadcast go here
-function broadcastFuncs() {
-	// TODO
-}
+// function broadcastFuncs() {
+// 	// TODO
+// }
 
 // Export any functions for use elsewhere
 module.exports = {
